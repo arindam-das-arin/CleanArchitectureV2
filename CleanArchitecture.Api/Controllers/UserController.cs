@@ -11,12 +11,14 @@ namespace CleanArchitecture.Api.Controllers
         private readonly IUserService _userService = userService;
 
         [HttpGet]
+        [Route("")]
         public async Task<IEnumerable<UserDto>> Get()
         {
             return await this._userService.GetAllUserServiceAsync();
         }
 
         [HttpGet]
+        [Route("{id:int}")]
         public async Task<UserDto> Get(int id)
         {
             return await this._userService.GetUserByIdServiceAsync(id);

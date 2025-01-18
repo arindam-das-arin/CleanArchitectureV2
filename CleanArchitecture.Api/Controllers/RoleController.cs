@@ -11,12 +11,14 @@ namespace CleanArchitecture.Api.Controllers
         private readonly IRoleService _roleService = roleService;
 
         [HttpGet]
+        [Route("")]
         public async Task<IEnumerable<RoleDto>> Get()
         {
             return await this._roleService.GetAllRoleServiceAsync();
         }
 
         [HttpGet]
+        [Route("{id:int}")]
         public async Task<RoleDto> Get(int id)
         {
             return await this._roleService.GetRoleByIdServiceAsync(id);
